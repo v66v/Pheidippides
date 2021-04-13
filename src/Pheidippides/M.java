@@ -1,6 +1,6 @@
 package Pheidippides;
 
-//Φειδιππήδης
+//Φειδιππίδης
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 public class M {
 private static FirstUI f = null;
 private static JFrame F;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         F = new JFrame();
-        F.setTitle("Φειδιππήδης");
+        F.setTitle("Φειδιππίδης");
         F.setSize(500, 400);
         F.setDefaultCloseOperation(EXIT_ON_CLOSE);
         F.setLayout(new BorderLayout());
@@ -37,16 +37,19 @@ private static JFrame F;
         j.add(addImage);
         F.add(j);
         F.setVisible(true);
-          sw.Ref("https://ece.hmu.gr/wp-json/wp/v2/posts");        // for ece.hmu.gr
-        json.jsonify();// for https://www.hmu.gr/merimna/el/
-        try {
+        sw.Ref("https://ece.hmu.gr/wp-json/wp/v2/posts");               // for ece.hmu.gr
+        json.jsonify();
+        try {                                                           // for https://www.hmu.gr/merimna/el/
             WebScrape.webScrape();
             WebScrape.webScrapePost();
+            WebScrape.lbrGetData("https://lib.hmu.gr/%ce%bd%ce%ad%ce%b1/");
         } catch (IOException ex) {
                     final JDialog d = new JOptionPane("<html><font color='red'>No connection!<br />Or the server is down </font></html>").createDialog((JFrame)null, "Connection");
                     d.setLocation(new Point( F.getX() + F.getWidth()/2 - (int)d.getPreferredSize().getWidth()/2, F.getY() + F.getHeight()/2- (int)d.getPreferredSize().getHeight()/2));
                     d.setVisible(true);
         }
+        
+    //Location check
         if (F.getLocation() != p) {
             f = new FirstUI(new Point(F.getLocation().x, F.getLocation().y));
             F.dispose();

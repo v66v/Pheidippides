@@ -1,5 +1,5 @@
 package Pheidippides;
-//Φειδιππήδης
+//Φειδιππίδης
 
 import java.io.FileInputStream;
 import org.json.simple.JSONArray;

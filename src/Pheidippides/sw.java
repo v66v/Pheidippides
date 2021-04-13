@@ -1,5 +1,5 @@
 package Pheidippides;
-//Φειδιππήδης
+//Φειδιππίδης
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -69,9 +69,9 @@ public class sw {
         }
     }
 
-    public static void print2(ArrayList<String> content) {
+    public static void print2(ArrayList<String> content,String name) {
         try {
-            File file = new File("DataWeb.txt");
+            File file = new File(name);
 
             // Create file if not already existent. 
             if (!file.exists()) {
@@ -82,15 +82,7 @@ public class sw {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, "UTF-8");
             try (BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)) {
                 for (String i : content) {
-                    if (i.indexOf("href=\"https://www.hmu.gr/merimna/el/") != -1) {
-                        i = "";
-                    } else {
-                        i = i.replace("href=\"/merimna/el/", "href=\"https://www.hmu.gr/merimna/el/");
-                        i = i.substring(9);
-                        i = i.substring(0, i.indexOf("\""));
                         bufferedWriter.write(i + "\n");
-                    }
-
                 }
             }
             file = null;
@@ -119,12 +111,9 @@ public class sw {
                         i = "";
                     } else {
                         i = (URLDecoder.decode(i, "UTF-8"));
-                        i = i.replace("href=\"/merimna/el/", "");
-                        i = i.replace("href=\"https://www.hmu.gr/merimna/el/", "");
-                        i = i.substring(20);
+                        i = i.substring(47);
                         i = i.replace("-", " ");
                         i = i.toUpperCase();
-                        i = i.substring(0, i.indexOf("\""));
                         bufferedWriter.write(i + "\n");
                     }
 
