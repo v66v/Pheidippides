@@ -117,7 +117,7 @@ public class FirstUI extends JFrame {
         });
         merimna.setMnemonic('M');
         pan.add(merimna);
-        JButton lbr = new JButton("Βιβλιοθήκη");
+        JButton lbr = new JButton("Bιβλιοθήκη");
         lbr.addActionListener((ActionEvent e)->{
             libraryUI = new LibraryUI();
             remove(panel);
@@ -125,7 +125,7 @@ public class FirstUI extends JFrame {
             setLocation(FirstUI.this.getX() - 175, FirstUI.this.getY() - 100);
             setSize(850, 600);
         });
-        lbr.setMnemonic('Β');
+        lbr.setMnemonic('B');
         pan.add(lbr);
         panel.add(pan, BorderLayout.CENTER);
         JLabel addImage = new JLabel();
